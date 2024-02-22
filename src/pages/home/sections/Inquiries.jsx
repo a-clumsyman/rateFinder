@@ -19,8 +19,8 @@ const Inquiries = () => {
           <img src={arrowRight} alt="" width={28} height={"auto"} />
         </Link>
       </div>
-      <div className="mt-8 flex justify-center gap-40 max-sm:flex-col">
-        <div>
+      <div className="mt-8 flex justify-center items-center gap-28 max-sm:flex-col">
+        {/* <div>
           <ul className="h-full flex flex-col justify-evenly">
             {inquirySections.map((inquiry, index) => (
               <li
@@ -42,7 +42,10 @@ const Inquiries = () => {
               </li>
             ))}
           </ul>
-        </div>
+        </div> */}
+        <p className="text-[3rem] font-serif w-[15%] font-[500]">
+          All your needs under one roof
+        </p>
         <div className="flex justify-center gap-12 max-sm:flex-col">
           {currentInquiry.cards.map((card, index) => (
             <InquiryCard

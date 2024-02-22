@@ -10,6 +10,7 @@ import {
   occupationTypes,
   incomeTypes,
   otherInfoTypes,
+  propertyStatuses,
 } from "../../../constants";
 import {
   Button,
@@ -26,12 +27,13 @@ const FormBody = () => {
     loanPurpose: -1,
     mortgageAmountRequired: 0,
     approxDateOfRequierment: new Date().toISOString().slice(0, 10),
+    purchasePrice : 0,
+    currentStatus : -1
   });
   const personalInfoTemplate = {
     title: -1,
     firstName: " ",
     lastName: " ",
-    initial: " ",
     dateOfBirth: new Date().toISOString().slice(0, 10),
     SIN: " ",
     eMail: " ",
@@ -205,12 +207,12 @@ const FormBody = () => {
             <div className="w-[20%] max-sm:w-full">
               <Choose
                 label={"Current Status of property*"}
-                value={mortgageData.loanPurpose}
-                options={loanPurposes}
+                value={mortgageData.currentStatus}
+                options={propertyStatuses}
                 handleChange={(e) => {
                   setMortgageData({
                     ...mortgageData,
-                    loanPurpose: e.target.value,
+                    currentStatus: e.target.value,
                   });
                 }}
               />
@@ -226,6 +228,19 @@ const FormBody = () => {
                   setMortgageData({
                     ...mortgageData,
                     homeValue: e.target.value,
+                  });
+                }}
+              />
+            </div>
+            <div className="w-[20%] max-sm:w-full">
+              <TextInput
+                label="Purchase Price"
+                required
+                value={mortgageData.purchasePrice}
+                handleChange={(e) => {
+                  setMortgageData({
+                    ...mortgageData,
+                    purchasePrice: e.target.value,
                   });
                 }}
               />
@@ -306,16 +321,6 @@ const FormBody = () => {
                       }}
                     />
                   </div>
-                  <div className="w-[25%] max-sm:w-full">
-                    <TextInput
-                      label="Initial"
-                      required
-                      value={applicant.initial}
-                      handleChange={(e) => {
-                        handleApplicantDataChange(e.target.value, "initial", i);
-                      }}
-                    />
-                  </div>
                 </div>
                 <div className="flex mt-5 flex-wrap gap-10 max-sm:gap-5">
                   <div className="w-[20%] max-sm:w-full">
@@ -393,16 +398,6 @@ const FormBody = () => {
                           "lastName",
                           i
                         );
-                      }}
-                    />
-                  </div>
-                  <div className="w-[25%] max-sm:w-full">
-                    <TextInput
-                      label="Initial"
-                      required
-                      value={applicant.initial}
-                      handleChange={(e) => {
-                        handleApplicantDataChange(e.target.value, "initial", i);
                       }}
                     />
                   </div>
@@ -639,7 +634,6 @@ const FormBody = () => {
                 <div className="w-[40%] max-sm:w-full">
                   <TextInput
                     label={"Work Ph.#: (incl. area code, no ext; 1112223333)"}
-                    required
                     value={applicant.workPhone}
                     handleChange={(e) => {
                       handleApplicantDataChange(e.target.value, "workPhone", i);

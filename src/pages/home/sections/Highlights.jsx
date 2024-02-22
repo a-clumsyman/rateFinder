@@ -21,7 +21,7 @@ const Highlights = () => {
             process and take care of all the details.
           </p>
         </div>
-        <div className="flex gap-20 max-sm:gap-10 max-sm:flex-wrap items-center justify-between mt-10">
+        <div className="flex gap-20 max-sm:gap-10 max-sm:flex-wrap items-center justify-center mt-10">
           {highlightStats.map((stat, index) => (
             <HighlightCard {...stat} key={`higlight-card-${index}`} />
           ))}

@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { topLinePlain } from "../../../assets/icons";
 import { services } from "../../../constants";
 import ServiceCard from "../../../components/ServiceCard";
 const Services = () => {

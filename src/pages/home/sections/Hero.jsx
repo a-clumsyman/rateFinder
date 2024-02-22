@@ -13,7 +13,7 @@ const Hero = () => {
       <p className="max-sm:text-base text-3xl mt-3 text-center  text-gray-6">
         Compare mortgage rates from various lenders in and around Canada
       </p>
-      <div className="flex max-lg:flex-col justify-center gap-10 mt-14">
+      <div className="grid grid-cols-3 mx-auto w-[90%] justify-center gap-10 mt-14 items-center">
         {homeCards.map((card, index) => (
           <HeroCard {...card} key={`hero-card-${index}`} />
         ))}

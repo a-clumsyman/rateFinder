@@ -40,9 +40,9 @@ export default function Home() {
       <section className="padding">
         <EducationCenter />
       </section>
-      {/* <section className="padding">
+      <section className="">
         <CustomerReviews />
-      </section> */}
+      </section>
       <section>
         <NewsLetter />
       </section>

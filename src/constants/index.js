@@ -1,4 +1,4 @@
-import { home, renew } from "../assets/icons";
+import { bizi, builderIcon, home, renew } from "../assets/icons";
 import {
   affordabilityCalcImg,
   bmoLogo,
@@ -9,25 +9,33 @@ import {
   mortgageCalcImg,
   navLogo,
   blankProfile,
+  htcLogo,
+  rbcLogo,
+  tdLogo,
 } from "../assets/images";
 export const navLinks = [
-  { href: "/", label: "Boolean.Ventures" },
-  { href: "/", label: "B.Square" },
+  { href: "/", label: "Appraise", coming_soon: true },
+  { href: "/", label: "Buy/Sell/Rent", coming_soon: false },
   { href: "/", img: navLogo },
-  { href: "/", label: "Boolean.Builds" },
-  { href: "/", label: "B.Insurance" },
+  { href: "/", label: "Construction", coming_soon: true },
+  { href: "/", label: "Insure", coming_soon: true },
 ];
 
 export const homeCards = [
   {
-    icon: home,
-    title: "I’m buying a home",
-    href : '/mortgage-form'
+    icon: builderIcon,
+    title: "I’m builder/developer",
+    href: "",
   },
   {
-    icon: renew,
-    title: "I’m renewing/refinancing",
-    href : ''
+    icon: home,
+    title: "I’m buying/refinancing an asset",
+    href: "/mortgage-form",
+  },
+  {
+    icon: bizi,
+    title: "I’m a builder",
+    href: "",
   },
 ];
 
@@ -247,16 +255,16 @@ export const highlightStats = [
     value: "10 Times",
     name: "Brokerage of the year",
   },
+  // {
+  //   value: "$20 Billion",
+  //   name: "Mortgages Funded",
+  // },
+  // {
+  //   value: "4.9 Rating",
+  //   name: "on over 1L+ Reviews",
+  // },
   {
-    value: "$20 Billion",
-    name: "Mortgages Funded",
-  },
-  {
-    value: "4.9 Rating",
-    name: "on over 1L+ Reviews",
-  },
-  {
-    value: "5+ Years",
+  value: "30+ Years",
     name: "Mortgage Experience",
   },
 ];
@@ -264,24 +272,24 @@ export const highlightStats = [
 export const clients = [
   {
     img: bmoLogo,
-    link: "",
+    link: "https://www.bmo.com/en-ca/main/personal/",
   },
   {
-    img: bmoLogo,
-    link: "",
+    img: htcLogo,
+    link: "https://hometrust.ca/",
   },
   {
-    img: bmoLogo,
-    link: "",
+    img: rbcLogo,
+    link: "https://www.rbcroyalbank.com/personal.html",
   },
   {
-    img: bmoLogo,
-    link: "",
+    img: tdLogo,
+    link: "https://www.td.com/us/en/personal-banking",
   },
-  {
-    img: bmoLogo,
-    link: "",
-  },
+  // {
+  //   img: bmoLogo,
+  //   link: "",
+  // },
 ];
 
 export const educationCards = [
@@ -805,9 +813,18 @@ export const otherInfoTypes = [
 
 export const loanTypes = ["Approval", "Pre-Approval"];
 
-export const loanPurposes = ["Purchase", "Refinance", "Switch/Transfer"];
+export const loanPurposes = [
+  "Purchase",
+  "Refinance",
+  "Equity Takeout" /*"Switch/Transfer"*/,
+];
 
-export const propertyStatuses = ["Vacant","Under Construction","Existing Home","Other"]
+export const propertyStatuses = [
+  "Vacant",
+  "Under Construction",
+  "Existing Home",
+  "Other",
+];
 
 export const mortgageAgent = {
   name: "Sushant Mehta",

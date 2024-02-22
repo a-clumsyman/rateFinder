@@ -1,6 +1,7 @@
 import Home from "./pages/home/Home";
 import { Route, Routes } from "react-router-dom";
 import MortgageForm from "./pages/mortgage-form/MortgageForm";
+import 'swiper/css';
 
 export default function App() {
   return (

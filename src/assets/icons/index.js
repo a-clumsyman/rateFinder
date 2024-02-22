@@ -11,6 +11,8 @@ import tickWhite from "./tick-white.png";
 import arrowRight from "./arrow-right.svg";
 import topLinePlain from "./top-line-plain.svg";
 import plusIcon from "./plus.png";
+import builderIcon from './builder.png';
+import bizi from './bisiowner.png';
 export {
   angleDown,
   bmo,
@@ -24,5 +26,7 @@ export {
   tickWhite,
   arrowRight,
   topLinePlain,
-  plusIcon
+  plusIcon,
+  builderIcon,
+  bizi
 };

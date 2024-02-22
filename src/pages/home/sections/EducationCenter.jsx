@@ -11,6 +11,9 @@ const EducationCenter = () => {
           <EducationCard {...card} key={`education-card-${index}`} />
         ))}
       </div>
+      <div className="flex justify-center mt-10">
+        <button className="button w-fit px-4 py-2 text-lg font-serif border-[2px] rounded-lg border-[#320064]">Education Center</button>
+      </div>
     </section>
   );
 };

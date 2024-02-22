@@ -14,6 +14,9 @@ import bmoLogo from './bmo-logo.png';
 import homeMortagageService from './home-mortgage-service.png';
 import blankProfile from './blank_profile.jpg';
 import logoBlack from './logo-black.svg';
+import rbcLogo from './rbc-logo-shield.svg';
+import tdLogo from './td-bank.png';
+import htcLogo from './HTC_logo_white.png';
 export {
     navLogo,
     logoBlack,
@@ -36,4 +39,7 @@ export {
     homeMortagageService,
 
     blankProfile,
+    rbcLogo,
+    htcLogo,
+    tdLogo
 }
