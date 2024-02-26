@@ -180,7 +180,34 @@ export const inquirySections = [
   },
 ];
 
-export const services = [
+export const commercialServices = [
+  {
+    title: "Finance With Bank",
+    desc: "Our private home mortgages provide flexible financing options tailored to your unique needs. Whether you're a first-time homebuyer, looking to upgrade to a larger property, or seeking to refinance your existing mortgage, we have the right solution for you.",
+    learnMoreLink: "",
+    img: homeMortagageService,
+  },
+  {
+    title: "Find A Private Lender",
+    desc: "Our private home mortgages provide flexible financing options tailored to your unique needs. Whether you're a first-time homebuyer, looking to upgrade to a larger property, or seeking to refinance your existing mortgage, we have the right solution for you.",
+    learnMoreLink: "",
+    img: homeMortagageService,
+  },
+  {
+    title: "Find Best Quote",
+    desc: "Our private home mortgages provide flexible financing options tailored to your unique needs. Whether you're a first-time homebuyer, looking to upgrade to a larger property, or seeking to refinance your existing mortgage, we have the right solution for you.",
+    learnMoreLink: "",
+    img: homeMortagageService,
+  },
+  {
+    title: "Best Insurance Quote",
+    desc: "Our private home mortgages provide flexible financing options tailored to your unique needs. Whether you're a first-time homebuyer, looking to upgrade to a larger property, or seeking to refinance your existing mortgage, we have the right solution for you.",
+    learnMoreLink: "",
+    img: homeMortagageService,
+  },
+];
+
+export const residentialServices = [
   {
     title: "Private Home Mortgage",
     desc: "Our private home mortgages provide flexible financing options tailored to your unique needs. Whether you're a first-time homebuyer, looking to upgrade to a larger property, or seeking to refinance your existing mortgage, we have the right solution for you.",

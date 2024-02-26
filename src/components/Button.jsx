@@ -1,28 +1,22 @@
-const Button = ({
-  label,
-  iconURL,
-  bg,
-  labelColor,
-  borderColor,
-  handleClick = () => {},
-}) => {
+/* eslint-disable react/prop-types */
+const Button = (props) => {
   return (
     <button
-      className={`px-6 py-3 rounded-md ${
-        bg ? bg : "bg-theme-purple"
+    disabled={props.disabled}
+      className={`px-5 py-2 rounded-md ${
+        props.disabled ? 'bg-slate-400 cursor-not-allowed' :props.bg ? props.bg : "bg-theme-purple"
       } flex items-center
-      ${borderColor ? `border ${borderColor}` : ""}
-      focus:outline-none
-      `}
-      onClick={handleClick}
+      ${props.borderColor ? `border ${props.borderColor}` : ""}
+      focus:outline-none`}
+      onClick={props.handleClick}
     >
-      {iconURL ? <img src={iconURL} alt="" width={20} className="mr-3" /> : ""}
+      {props.iconURL ? <img src={props.iconURL} alt="" width={20} className="mr-3" /> : ""}
       <p
         className={`font-lato ${
-          labelColor ? labelColor : "text-white"
-        } font-bold`}
+          props.labelColor ? props.labelColor : "text-white"
+        }`}
       >
-        {label}
+        {props.label}
       </p>
     </button>
   );

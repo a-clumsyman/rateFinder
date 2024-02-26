@@ -20,6 +20,12 @@ import {
   TextInput,
 } from "../../../components";
 import { plusIcon, renew } from "../../../assets/icons";
+import { Stepper, Step, StepLabel,Box,Typography } from "@mui/material";
+import React from 'react'
+import MortagageDetails from "./steps/MortagageDetails";
+import PersonalInformation from "./steps/PersonalInformation";
+import FinancialInformation from "./steps/FinancialInformation";
+import OtherInformation from "./steps/OtherInformation";
 const FormBody = () => {
   const [mortgageData, setMortgageData] = useState({
     loanType: -1,
@@ -27,8 +33,8 @@ const FormBody = () => {
     loanPurpose: -1,
     mortgageAmountRequired: 0,
     approxDateOfRequierment: new Date().toISOString().slice(0, 10),
-    purchasePrice : 0,
-    currentStatus : -1
+    purchasePrice: 0,
+    currentStatus: -1,
   });
   const personalInfoTemplate = {
     title: -1,
@@ -61,13 +67,13 @@ const FormBody = () => {
   };
 
   const [applicants, setApplicants] = useState([personalInfoTemplate]);
-  const toggleApplicant = (e) => {
-    if (applicants.length === 1) {
-      setApplicants((prevData) => [...prevData, personalInfoTemplate]);
-    } else {
-      setApplicants((prevData) => [prevData[0]]);
-    }
-  };
+    const toggleApplicant = (e) => {
+      if (applicants.length === 1) {
+        setApplicants((prevData) => [...prevData, personalInfoTemplate]);
+      } else {
+        setApplicants((prevData) => [prevData[0]]);
+      }
+    };
   const handleApplicantDataChange = (value, name, applicantNo) => {
     console.log({ value, name, applicantNo });
     setApplicants((prevData) =>
@@ -161,10 +167,73 @@ const FormBody = () => {
     electronicCommunicationConfirmation: "",
   });
 
+  const steps = [
+    {
+      title : 'Mortagage Details',
+      body : <MortagageDetails/>
+    },
+    {
+      title : 'Personal Details',
+      body : <PersonalInformation/>
+    },
+    {
+      title : 'Financial Information',
+      body : <FinancialInformation/>
+    },
+    {
+      title : 'Other Information',
+      body : <OtherInformation/>
+    }
+  ]
+  const [activeStep, setActiveStep] = React.useState(0);
+  const [skipped, setSkipped] = React.useState(new Set());
+
+  const isStepOptional = (step) => {
+    return step === 1;
+  };
+
+  const isStepSkipped = (step) => {
+    return skipped.has(step);
+  };
+
+  const handleNext = () => {
+    let newSkipped = skipped;
+    if (isStepSkipped(activeStep)) {
+      newSkipped = new Set(newSkipped.values());
+      newSkipped.delete(activeStep);
+    }
+
+    setActiveStep((prevActiveStep) => prevActiveStep + 1);
+    setSkipped(newSkipped);
+  };
+
+  const handleBack = () => {
+    setActiveStep((prevActiveStep) => prevActiveStep - 1);
+  };
+
+  const handleSkip = () => {
+    // if (!isStepOptional(activeStep)) {
+    //   // You probably want to guard against something like this,
+    //   // it should never occur unless someone's actively trying to break something.
+    //   throw new Error("You can't skip a step that isn't optional.");
+    // }
+
+    setActiveStep((prevActiveStep) => prevActiveStep + 1);
+    setSkipped((prevSkipped) => {
+      const newSkipped = new Set(prevSkipped.values());
+      newSkipped.add(activeStep);
+      return newSkipped;
+    });
+  };
+
+  const handleReset = () => {
+    setActiveStep(0);
+  };
+
   const validateForm = () => {};
   return (
     <section className="mt-10 px-6 py-10 border border-slate-600 rounded-lg">
-      <div>
+      {/* <div>
         <p>
           Please complete the following mortgage application in as much detail
           as you can (required information has been highlighted), then click
@@ -673,6 +742,8 @@ const FormBody = () => {
           </div>
         ))}
       </div>
+
+
       <div className="mt-5">
         <Button
           label={`${
@@ -681,6 +752,7 @@ const FormBody = () => {
           handleClick={toggleApplicant}
         />
       </div>
+      
       <div className="mt-12">
         <h3 className="form-title">FINANCIAL INFORMATION</h3>
         <div className="mt-8 overflow-auto">
@@ -828,6 +900,8 @@ const FormBody = () => {
           </div>
         </div>
       </div>
+
+
       <div className="mt-12">
         <h3 className="form-title">OTHER INFORMATION</h3>
         <div className="mt-5 w-[25%]">
@@ -935,7 +1009,73 @@ const FormBody = () => {
             borderColor={"border-theme-purple"}
           />
         </div>
+      </div> */}
+       <div>
+        <p>
+          Please complete the following mortgage application in as much detail
+          as you can (required information has been highlighted), then click
+          submit. I will review the information, then contact you to discuss
+          your application, answer any questions you might have, and explain
+          next steps.
+        </p>
+        <p className="mt-2">*Mandatory field.</p>
       </div>
+      <Box sx={{ width: "100%" }} className="mt-8">
+        <div className="w-[60%] mx-auto">
+        <Stepper activeStep={activeStep}>
+          {steps.map((step, index) => {
+            const stepProps = {};
+            const labelProps = {};
+            // if (isStepOptional(index)) {
+            //   labelProps.optional = (
+            //     <Typography variant="caption">Optional</Typography>
+            //   );
+            // }
+            if (isStepSkipped(index)) {
+              stepProps.completed = false;
+            }
+            return (
+              <Step key={step.title} {...stepProps}>
+                <StepLabel {...labelProps}> <p className="text-xs">{step.title}</p> </StepLabel>
+              </Step>
+            );
+          })}
+        </Stepper>
+        </div>
+        {activeStep === steps.length ? (
+          <React.Fragment>
+            <Typography sx={{ mt: 2, mb: 1 }}>
+              All steps completed - you&apos;re finished
+            </Typography>
+            <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
+              <Box sx={{ flex: "1 1 auto" }} />
+              <Button handleClick={handleReset} label={'Reset'}/>
+            </Box>
+          </React.Fragment>
+        ) : (
+          <React.Fragment>
+            {
+              steps.map((step,index)=>{
+                return index === activeStep && (step.body)
+              })
+            }
+            <div className="flex justify-end gap-10">
+              <Button
+                disabled={activeStep === 0}
+                handleClick={handleBack}
+                label="Back"
+              />
+              {/* {isStepOptional(activeStep) && (
+                <Button color="inherit" onClick={handleSkip} sx={{ mr: 1 }}>
+                  Skip
+                </Button>
+              )} */}
+
+              <Button handleClick={handleNext} bg={activeStep === steps.length - 1 ? 'bg-[#039C00]' : null} label={activeStep === steps.length - 1 ? "Send Application" : "Next"}/>
+            </div>
+          </React.Fragment>
+        )}
+      </Box>
     </section>
   );
 };

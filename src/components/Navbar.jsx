@@ -6,7 +6,26 @@ const Navbar = () => {
   const toggleNavBar = () => {
     setNavbarState((prevState) => (prevState === "closed" ? "open" : "closed"));
   };
+  const menu2 = [
+    {
+      label : 'Mortgages',
+      link : ''
+    },
+    {
+      label : 'Business',
+      link : ''
+    },
+    {
+      label : 'GIC Rates',
+      link : ''
+    },
+    {
+      label : 'Earn In Mortgages',
+      link : ''
+    }
+  ]
   return (
+    <>
     <nav className="flex justify-between items-center px-16 py-6 bg-black max-lg:px-4 max-lg:py-4">
       {navLinks.map((link, index) => {
         if (link.img) {
@@ -75,6 +94,17 @@ const Navbar = () => {
         </p>
       </div>
     </nav>
+    {/* Menu */}
+    <div className="bg-white py-9 w-[60%] mx-auto flex justify-between">
+            {
+              menu2.map((e,i)=>{
+                return (<div>
+                  <a className="text-theme-purple text-lg" href={e.link}>{e.label}</a>
+                </div>)
+              })
+            }
+    </div>
+    </>
   );
 };
 
