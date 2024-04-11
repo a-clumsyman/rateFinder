@@ -14,10 +14,10 @@ import {
   tdLogo,
 } from "../assets/images";
 export const navLinks = [
-  { href: "/", label: "Appraise", coming_soon: true },
-  { href: "/", label: "Buy/Sell/Rent", coming_soon: false },
+  { href: "/", label: "Mortgages", coming_soon: true },
+  { href: "/", label: "Rates", coming_soon: false },
   { href: "/", img: navLogo },
-  { href: "/", label: "Construction", coming_soon: true },
+  { href: "/", label: "Manage Your Credit", coming_soon: true },
   { href: "/", label: "Insure", coming_soon: true },
 ];
 
@@ -25,7 +25,7 @@ export const homeCards = [
   {
     icon: builderIcon,
     title: "I’m builder/developer",
-    href: "",
+    href: "/business-form",
   },
   {
     icon: home,
@@ -35,7 +35,7 @@ export const homeCards = [
   {
     icon: bizi,
     title: "I’m a builder",
-    href: "",
+    href: "/reidential-form",
   },
 ];
 
