@@ -12,7 +12,7 @@ const Navbar = () => {
       link : ''
     },
     {
-      label : 'Business',
+      label : 'Businesses',
       link : ''
     },
     {
