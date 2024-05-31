@@ -213,7 +213,7 @@ export const residentialServices = [
     desc: "Our private home mortgages provide flexible financing options tailored to your unique needs. Whether you're a first-time homebuyer, looking to upgrade to a larger property, or seeking to refinance your existing mortgage, we have the right solution for you.",
     learnMoreLink: "",
     img: homeMortagageService,
-  }
+  },
   {
     title: "Private Home Construction Mortgage",
     desc: "To cater to individuals who are looking to build their dream home from the ground up. With flexible draw schedules and competitive rates, we offer the support you need to turn your blueprint into reality. Whether you're a seasoned developer or a first-time builder, our construction mortgages are designed to simplify the financing process, so you can focus on making your vision come true.",
