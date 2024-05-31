@@ -1,25 +1,34 @@
-import React from 'react'
+import React from "react";
 import {
-    Button,
-    Choose,
-    DateInput,
-    TextArea,
-    TextInput,
-  } from "../../../../components";
-  import { loanTypes,propertyStatuses,loanPurposes } from '../../../../constants';
-const MortagageDetails = () => {
-    const [mortgageData, setMortgageData] = React.useState({
-        loanType: -1,
-        homeValue: 0,
-        loanPurpose: -1,
-        mortgageAmountRequired: 0,
-        approxDateOfRequierment: new Date().toISOString().slice(0, 10),
-        purchasePrice: 0,
-        currentStatus: -1,
-      });
+  Button,
+  Choose,
+  DateInput,
+  TextArea,
+  TextInput,
+} from "../../../../components";
+import {
+  loanTypes,
+  propertyStatuses,
+  loanPurposes,
+} from "../../../../constants";
+const MortagageDetails = React.forwardRef((props,ref) => {
+  const [mortgageData, setMortgageData] = React.useState({
+    loanType: -1,
+    homeValue: 0,
+    loanPurpose: -1,
+    mortgageAmountRequired: 0,
+    approxDateOfRequierment: new Date().toISOString().slice(0, 10),
+    purchasePrice: 0,
+    currentStatus: -1,
+  });
+  const getData = () => {
+    return mortgageData;
+  };
+  React.useImperativeHandle(ref, () => ({ getData }));
+
   return (
-    <section className='mt-15 mb-10 mx-5'>
-        <div className="mt-10">
+    <section className="mt-15 mb-10 mx-5">
+      <div className="mt-10">
         {/* <h3 className="form-title">MORTGAGE DETAILS</h3> */}
         <div className="flex flex-col mt-6">
           <div className="flex flex-wrap gap-10 max-sm:gap-5">
@@ -119,7 +128,7 @@ const MortagageDetails = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+});
 
-export default MortagageDetails
+export default MortagageDetails;

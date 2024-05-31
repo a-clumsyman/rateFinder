@@ -1,36 +1,45 @@
-import React from 'react'
-import { Choose,DateInput,TextInput,Button } from '../../../../components';
-import { personTitles,streetTypes,streetDirections,provinces,counrties,occupationTypes,incomeTypes } from '../../../../constants';
-const PersonalInformation = () => {
-    const personalInfoTemplate = {
-        title: -1,
-        firstName: " ",
-        lastName: " ",
-        dateOfBirth: new Date().toISOString().slice(0, 10),
-        SIN: " ",
-        eMail: " ",
-        phoneNumber: " ",
-        streetName: " ",
-        streetType: -1,
-        streetDirection: -1,
-        unit: " ",
-        city: " ",
-        province: -1,
-        zipCode: " ",
-        counrty: -1,
-        homePhone: " ",
-        cellPhone: " ",
-        timeAtThisAdress:
-          " " /**total time applicant spent in the current address */,
-        occupationType: -1,
-        nameOfTheEmployer: " ",
-        jobTitle: " ",
-        workPhone: " ",
-        employmentType: " ",
-        employmentDuration: " ",
-        annualIncome: 0,
-        incomeType: -1,
-      };
+import React from "react";
+import { Choose, DateInput, TextInput, Button } from "../../../../components";
+import {
+  personTitles,
+  streetTypes,
+  streetDirections,
+  provinces,
+  counrties,
+  occupationTypes,
+  incomeTypes,
+} from "../../../../constants";
+import { useImperativeHandle } from "react";
+const PersonalInformation = React.forwardRef((props,ref) => {
+  const personalInfoTemplate = {
+    title: -1,
+    firstName: " ",
+    lastName: " ",
+    dateOfBirth: new Date().toISOString().slice(0, 10),
+    SIN: " ",
+    eMail: " ",
+    phoneNumber: " ",
+    streetName: " ",
+    streetType: -1,
+    streetDirection: -1,
+    unit: " ",
+    city: " ",
+    province: -1,
+    zipCode: " ",
+    counrty: -1,
+    homePhone: " ",
+    cellPhone: " ",
+    timeAtThisAdress:
+      " " /**total time applicant spent in the current address */,
+    occupationType: -1,
+    nameOfTheEmployer: " ",
+    jobTitle: " ",
+    workPhone: " ",
+    employmentType: " ",
+    employmentDuration: " ",
+    annualIncome: 0,
+    incomeType: -1,
+  };
   const [applicants, setApplicants] = React.useState([personalInfoTemplate]);
   const handleApplicantDataChange = (value, name, applicantNo) => {
     console.log({ value, name, applicantNo });
@@ -53,9 +62,16 @@ const PersonalInformation = () => {
       setApplicants((prevData) => [prevData[0]]);
     }
   };
+
+  const getData = () => {
+    return applicants;
+  };
+
+  React.useImperativeHandle(ref, () => ({getData}));
+
   return (
     <section>
-        <div className="mt-12">
+      <div className="mt-12">
         {applicants.map((applicant, i) => (
           <div key={`applicant-${i}`} className="mb-10">
             <h3 className="form-title">
@@ -464,7 +480,7 @@ const PersonalInformation = () => {
         />
       </div>
     </section>
-  )
-}
+  );
+});
 
-export default PersonalInformation
+export default PersonalInformation;

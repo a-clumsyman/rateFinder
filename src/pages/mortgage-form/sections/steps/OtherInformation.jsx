@@ -1,16 +1,21 @@
-import React from 'react'
-import { TextArea,Choose } from '../../../../components';
-import { otherInfoTypes } from '../../../../constants';
-import { useState } from 'react';
-const OtherInformation = () => {
-    const [otherInfo, setOtherInfo] = useState({
-        type: -1,
-        additionalNote: "",
-        electronicCommunicationConfirmation: "",
-      });
+import React from "react";
+import { TextArea, Choose } from "../../../../components";
+import { otherInfoTypes } from "../../../../constants";
+import { useState } from "react";
+const OtherInformation = React.forwardRef((props,ref) => {
+  const [otherInfo, setOtherInfo] = useState({
+    type: -1,
+    additionalNote: "",
+    electronicCommunicationConfirmation: "",
+  });
+  const getData = ()=>{
+    return otherInfo
+  }
+  React.useImperativeHandle(ref, () => ({getData}));
+
   return (
     <section>
-        <div className="mt-12">
+      <div className="mt-12">
         <h3 className="form-title">OTHER INFORMATION</h3>
         <div className="mt-5 w-[25%]">
           <Choose
@@ -72,7 +77,7 @@ const OtherInformation = () => {
             href="https://fightspam-combattrelepourriel.ised-isde.canada.ca/site/canada-anti-spam-legislation/en"
             className="text-[#f00] underline underline-offset-2"
             target="_blank"
-            rel='noreferrer'
+            rel="noreferrer"
           >
             Canada&apos;s Anti-Spam Legislation
           </a>{" "}
@@ -108,7 +113,7 @@ const OtherInformation = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+});
 
-export default OtherInformation
+export default OtherInformation;
