@@ -14,28 +14,28 @@ import {
   tdLogo,
 } from "../assets/images";
 export const navLinks = [
-  { href: "/", label: "Mortgages", coming_soon: true },
-  { href: "/", label: "Rates", coming_soon: false },
+  { href: "/", label: "Get an Appraisal", coming_soon: true },
+  { href: "/", label: "Get Rates", coming_soon: false },
   { href: "/", img: navLogo },
   { href: "/", label: "Manage Your Credit", coming_soon: true },
-  { href: "/", label: "Insure", coming_soon: true },
+  { href: "/", label: "Get Insured", coming_soon: true },
 ];
 
 export const homeCards = [
   {
-    icon: builderIcon,
-    title: "I’m builder/developer",
-    href: "/business-form",
-  },
-  {
     icon: home,
-    title: "I’m buying/refinancing an asset",
+    title: "I’m Buying/Re-Financing an Asset",
     href: "/mortgage-form",
   },
   {
+    icon: builderIcon,
+    title: "I’m a Builder/Developer",
+    href: "/builder-form",
+  },
+  {
     icon: bizi,
-    title: "I’m a builder",
-    href: "/reidential-form",
+    title: "I’m a Business",
+    href: "/business-form",
   },
 ];
 
@@ -183,25 +183,25 @@ export const inquirySections = [
 export const commercialServices = [
   {
     title: "Finance With Bank",
-    desc: "Our private home mortgages provide flexible financing options tailored to your unique needs. Whether you're a first-time homebuyer, looking to upgrade to a larger property, or seeking to refinance your existing mortgage, we have the right solution for you.",
+    desc: "We are offering comprehensive financing solutions for commercial properties through established banking institutions. We collaborate with leading banks to provide you with tailored financing options that suit the scale and scope of your project. Whether you're purchasing a new property or refinancing an existing one, our expert advisors ensure you get competitive interest rates and terms that enhance your investment's value and profitability.",
     learnMoreLink: "",
     img: homeMortagageService,
   },
   {
     title: "Find A Private Lender",
-    desc: "Our private home mortgages provide flexible financing options tailored to your unique needs. Whether you're a first-time homebuyer, looking to upgrade to a larger property, or seeking to refinance your existing mortgage, we have the right solution for you.",
+    desc: "We connect you with private financing options for commercial real estate ventures that might not fit traditional lending criteria. Ideal for unique, time-sensitive, or complex projects, private lenders offer flexibility that can be crucial for closing deals quickly. We help negotiate the best possible terms, ensuring that your financing aligns with your project's needs and your long-term financial strategy.",
     learnMoreLink: "",
     img: homeMortagageService,
   },
   {
     title: "Find Best Quote",
-    desc: "Our private home mortgages provide flexible financing options tailored to your unique needs. Whether you're a first-time homebuyer, looking to upgrade to a larger property, or seeking to refinance your existing mortgage, we have the right solution for you.",
+    desc: "To help you navigate the complex landscape of commercial financing, by comparing quotes from multiple financial institutions, we ensure that you receive the most favorable terms tailored to the specifics of your commercial property. This service is perfect for investors looking to maximize their leverage while minimizing costs and interest rates.",
     learnMoreLink: "",
     img: homeMortagageService,
   },
   {
     title: "Best Insurance Quote",
-    desc: "Our private home mortgages provide flexible financing options tailored to your unique needs. Whether you're a first-time homebuyer, looking to upgrade to a larger property, or seeking to refinance your existing mortgage, we have the right solution for you.",
+    desc: "To assist you in finding the most comprehensive and cost-effective insurance coverage. We compare offerings from top insurance providers to cover all aspects of your commercial investment, from basic property damage to liability and business interruption. This service ensures that your investment is protected under the best terms, providing security and stability for your business operations.",
     learnMoreLink: "",
     img: homeMortagageService,
   },
@@ -213,22 +213,22 @@ export const residentialServices = [
     desc: "Our private home mortgages provide flexible financing options tailored to your unique needs. Whether you're a first-time homebuyer, looking to upgrade to a larger property, or seeking to refinance your existing mortgage, we have the right solution for you.",
     learnMoreLink: "",
     img: homeMortagageService,
-  },
+  }
   {
     title: "Private Home Construction Mortgage",
-    desc: "Our private home mortgages provide flexible financing options tailored to your unique needs. Whether you're a first-time homebuyer, looking to upgrade to a larger property, or seeking to refinance your existing mortgage, we have the right solution for you.",
+    desc: "To cater to individuals who are looking to build their dream home from the ground up. With flexible draw schedules and competitive rates, we offer the support you need to turn your blueprint into reality. Whether you're a seasoned developer or a first-time builder, our construction mortgages are designed to simplify the financing process, so you can focus on making your vision come true.",
     learnMoreLink: "",
     img: homeMortagageService,
   },
   {
-    title: "Private Commercial Property Mortgage",
-    desc: "Our private home mortgages provide flexible financing options tailored to your unique needs. Whether you're a first-time homebuyer, looking to upgrade to a larger property, or seeking to refinance your existing mortgage, we have the right solution for you.",
+    title: "Find Best Quote",
+    desc: "To help homeowners and potential buyers secure the most advantageous mortgage rates available. We leverage our extensive network of lenders to compare quotes, ensuring you receive a mortgage plan that not only fits your budget but also aligns with your long-term financial goals. Whether you're refinancing or buying for the first time, we simplify the process to make your home financing as cost-effective and transparent as possible.",
     learnMoreLink: "",
     img: homeMortagageService,
   },
   {
-    title: "Bank Commercial Property Mortgage",
-    desc: "Our private home mortgages provide flexible financing options tailored to your unique needs. Whether you're a first-time homebuyer, looking to upgrade to a larger property, or seeking to refinance your existing mortgage, we have the right solution for you.",
+    title: "Best Insurance Quote",
+    desc: "Securing comprehensive and affordable home insurance has never been easier. We compare policies from multiple providers to find coverage that protects your home and belongings against a wide range of risks. Tailored to your specific needs and circumstances, our service ensures that you receive the best possible insurance quotes, providing peace of mind alongside exceptional value.",
     learnMoreLink: "",
     img: homeMortagageService,
   },

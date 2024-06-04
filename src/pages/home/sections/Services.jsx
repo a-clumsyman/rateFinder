@@ -26,7 +26,7 @@ const Services = () => {
             handleTypeChange("residential");
           }}
         >
-          Residentail
+          Residential
           <div
             className={`h-1 ${
               serviceType === "residential" ? "bg-theme-purple" : ""
