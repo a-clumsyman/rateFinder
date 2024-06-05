@@ -81,7 +81,7 @@ const FinancialInformation = React.forwardRef((props,ref) => {
   React.useImperativeHandle(ref, () => ({ getData }));
 
   return (
-    <section>
+    <section style={{ display: props.hide === true ? 'none' : 'block' }}>
       <div className="mt-12">
         <h3 className="form-title">FINANCIAL INFORMATION</h3>
         <div className="mt-8 overflow-auto">

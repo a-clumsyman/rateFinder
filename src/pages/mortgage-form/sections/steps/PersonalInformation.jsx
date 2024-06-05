@@ -70,7 +70,7 @@ const PersonalInformation = React.forwardRef((props,ref) => {
   React.useImperativeHandle(ref, () => ({getData}));
 
   return (
-    <section>
+    <section style={{ display: props.hide === true ? 'none' : 'block' }}>
       <div className="mt-12">
         {applicants.map((applicant, i) => (
           <div key={`applicant-${i}`} className="mb-10">

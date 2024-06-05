@@ -171,22 +171,26 @@ const FormBody = () => {
     {
       title: "Mortagage Details",
       body: MortagageDetails,
-      ref: React.createRef(),
+      ref: useRef("mortagage_details"),
+      key: 'mortagage_details'
     },
     {
       title: "Personal Details",
       body: PersonalInformation,
-      ref: React.createRef(),
+      ref: useRef("personal_details"),
+      key: 'personal_details'
     },
     {
       title: "Financial Information",
       body: FinancialInformation,
-      ref: React.createRef(),
+      ref: useRef("financial_details"),
+      key: 'financial_details'
     },
     {
       title: "Other Information",
       body: OtherInformation,
-      ref: React.createRef(),
+      ref: useRef("other_details"),
+      key: 'other_details'
     },
   ];
   const [activeStep, setActiveStep] = React.useState(0);
@@ -236,9 +240,18 @@ const FormBody = () => {
 
   const validateForm = () => {};
   const submitForm = async () => {
-    steps.forEach(step=>{
-      console.log({ref: step.ref})
-    })
+    let formData = {}
+    steps.forEach((step) => {
+      // console.log({ ref: step.ref });
+      const stepData = step.ref.current.getData()
+      formData = {
+        ...formData,
+        [step.key] : stepData
+      } 
+    });
+
+    console.log({formData})
+    
   };
 
   return (
@@ -278,52 +291,44 @@ const FormBody = () => {
             })}
           </Stepper>
         </div>
-        {activeStep === steps.length ? (
-          <React.Fragment>
-            <Typography sx={{ mt: 2, mb: 1 }}>
-              All steps completed - you&apos;re finished
-            </Typography>
-            <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
-              <Box sx={{ flex: "1 1 auto" }} />
-              <Button handleClick={handleReset} label={"Reset"} />
-            </Box>
-          </React.Fragment>
-        ) : (
-          <>
-            {" "}
-            {steps.map((step, index) => {
-              return (
-                index === activeStep &&
-                React.createElement(step.body, { props: {},ref: step.ref })
-              );
-            })}
-            <div className="flex justify-end gap-10">
-              <Button
-                disabled={activeStep === 0}
-                handleClick={handleBack}
-                label="Back"
-              />
-              {/* {isStepOptional(activeStep) && (
+        <>
+          {" "}
+          {steps.map((step, index) => {
+            return (
+              <React.Fragment>
+                {React.createElement(step.body, {
+                  hide: index != activeStep,
+                  ref: step.ref,
+                })}
+              </React.Fragment>
+            );
+          })}
+          <div className="flex justify-end gap-10">
+            <Button
+              disabled={activeStep === 0}
+              handleClick={handleBack}
+              label="Back"
+            />
+            {/* {isStepOptional(activeStep) && (
                 <Button color="inherit" onClick={handleSkip} sx={{ mr: 1 }}>
                   Skip
                 </Button>
               )} */}
 
-              <Button
-                handleClick={() => {
-                  if (activeStep === steps.length - 1) {
-                    submitForm();
-                  }
-                  handleNext();
-                }}
-                bg={activeStep === steps.length - 1 ? "bg-[#039C00]" : null}
-                label={
-                  activeStep === steps.length - 1 ? "Send Application" : "Next"
+            <Button
+              handleClick={() => {
+                if (activeStep === steps.length - 1) {
+                  submitForm();
                 }
-              />
-            </div>
-          </>
-        )}
+                handleNext();
+              }}
+              bg={activeStep === steps.length - 1 ? "bg-[#039C00]" : null}
+              label={
+                activeStep === steps.length - 1 ? "Send Application" : "Next"
+              }
+            />
+          </div>
+        </>
       </Box>
     </section>
   );

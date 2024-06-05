@@ -27,7 +27,7 @@ const MortagageDetails = React.forwardRef((props,ref) => {
   React.useImperativeHandle(ref, () => ({ getData }));
 
   return (
-    <section className="mt-15 mb-10 mx-5">
+    <section className="mt-15 mb-10 mx-5" style={{ display: props.hide === true ? 'none' : 'block' }}>
       <div className="mt-10">
         {/* <h3 className="form-title">MORTGAGE DETAILS</h3> */}
         <div className="flex flex-col mt-6">

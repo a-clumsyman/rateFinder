@@ -1,6 +1,6 @@
 import FormBody from "./sections/FormBody";
 import Head from "./sections/Head";
-const MortgageForm = () => {
+const BuilderForm = () => {
   return (
     <main className="w-[80%] max-sm:w-[90%] m-auto py-10">
       <section>
@@ -13,4 +13,4 @@ const MortgageForm = () => {
   );
 };
 
-export default MortgageForm;
+export default BuilderForm;

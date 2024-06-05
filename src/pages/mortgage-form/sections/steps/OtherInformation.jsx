@@ -14,7 +14,7 @@ const OtherInformation = React.forwardRef((props,ref) => {
   React.useImperativeHandle(ref, () => ({getData}));
 
   return (
-    <section>
+    <section style={{ display: props.hide === true ? 'none' : 'block' }}>
       <div className="mt-12">
         <h3 className="form-title">OTHER INFORMATION</h3>
         <div className="mt-5 w-[25%]">

@@ -4,7 +4,7 @@ const Head = () => {
   return (
     <section>
       <div className="flex justify-between items-center max-sm:flex-col-reverse gap-10">
-        <div className="flex items-center max-sm:flex-col gap-5">
+        {/* <div className="flex items-center max-sm:flex-col gap-5">
           <img src={blankProfile} alt="" width={150}/>
           <div className="ml-4">
             <h3 className="text-3xl font-medium text-theme-purple">{mortgageAgent.name}</h3>
@@ -14,7 +14,7 @@ const Head = () => {
             <p>Brokerage Licence : {mortgageAgent.brokerageLicence}</p>
             <p>{mortgageAgent.address}</p>
           </div>
-        </div>
+        </div> */}
         <div>
           <img src={logoBlack} alt="" />
         </div>
