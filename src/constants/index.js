@@ -23,15 +23,16 @@ export const navLinks = [
 
 export const homeCards = [
   {
-    icon: home,
-    title: "I’m Buying/Re-Financing an Asset",
-    href: "/mortgage-form",
-  },
-  {
     icon: builderIcon,
     title: "I’m a Builder/Developer",
     href: "/builder-form",
   },
+  {
+    icon: home,
+    title: "I’m Buying/Re-Financing an Asset",
+    href: "/mortgage-form",
+  },
+
   {
     icon: bizi,
     title: "I’m a Business",
@@ -291,7 +292,7 @@ export const highlightStats = [
   //   name: "on over 1L+ Reviews",
   // },
   {
-  value: "30+ Years",
+    value: "30+ Years",
     name: "Mortgage Experience",
   },
 ];
