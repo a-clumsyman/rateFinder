@@ -1,31 +1,16 @@
-import { useEffect, useRef, useState } from "react";
-import {
-  loanTypes,
-  loanPurposes,
-  personTitles,
-  streetTypes,
-  streetDirections,
-  provinces,
-  counrties,
-  occupationTypes,
-  incomeTypes,
-  otherInfoTypes,
-  propertyStatuses,
-} from "../../../constants";
+import { useRef, useState } from "react";
 import {
   Button,
-  Choose,
-  DateInput,
-  TextArea,
-  TextInput,
 } from "../../../components";
-import { plusIcon, renew } from "../../../assets/icons";
-import { Stepper, Step, StepLabel, Box, Typography } from "@mui/material";
+import { Stepper, Step, StepLabel, Box } from "@mui/material";
 import React from "react";
 import MortagageDetails from "./steps/MortagageDetails";
 import PersonalInformation from "./steps/PersonalInformation";
 import FinancialInformation from "./steps/FinancialInformation";
 import OtherInformation from "./steps/OtherInformation";
+import { pdf } from "@react-pdf/renderer";
+import { Document, Page, Text, View } from '@react-pdf/renderer';
+import { sendMail, uploadFile } from "../../../lib/common";
 const FormBody = () => {
   const [mortgageData, setMortgageData] = useState({
     loanType: -1,
@@ -239,6 +224,18 @@ const FormBody = () => {
   };
 
   const validateForm = () => {};
+  const FormDocument = (data) => {
+    console.log({ data });
+    return (
+      <Document>
+        <Page size="A4">
+          <View>
+            <Text>Section #1</Text>
+          </View>
+        </Page>
+      </Document>
+    );
+  };
   const submitForm = async () => {
     let formData = {}
     steps.forEach((step) => {
@@ -249,9 +246,14 @@ const FormBody = () => {
         [step.key] : stepData
       } 
     });
-
-    console.log({formData})
-    
+    const blob = await pdf(FormDocument(formData)).toBlob()
+    const url = await uploadFile(blob);
+    try{
+      const resp = await sendMail({pdfUrl: url})
+      console.log({resp})
+    } catch(error){
+      console.log({error})
+    }
   };
 
   return (
