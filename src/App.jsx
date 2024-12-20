@@ -4,6 +4,7 @@ import MortgageForm from "./pages/mortgage-form/MortgageForm";
 import 'swiper/css';
 import BuilderForm from "./pages/builder-form/BuilderForm";
 import BusinessForm from "./pages/business-form/BusinessForm";
+import GICRates from "./pages/gic-rates/GICRates";
 
 export default function App() {
   return (
@@ -13,6 +14,7 @@ export default function App() {
         <Route path="/mortgage-form" element={<MortgageForm/>} />
         <Route path="/builder-form" element={<BuilderForm/>} />
         <Route path="/business-form" element={<BusinessForm/>} />
+        <Route path="/gic-rates" element={<GICRates/>} />
       </Route>
     </Routes>
   );

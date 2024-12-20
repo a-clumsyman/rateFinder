@@ -17,7 +17,7 @@ const Navbar = () => {
     },
     {
       label : 'GIC Rates',
-      link : ''
+      link : '/gic-rates'
     },
     {
       label : 'Earn In Mortgages',
@@ -98,8 +98,8 @@ const Navbar = () => {
     <div className="bg-white py-9 w-[60%] mx-auto flex justify-between">
             {
               menu2.map((e,i)=>{
-                return (<div>
-                  <a className="text-theme-purple text-lg" href={e.link}>{e.label}</a>
+                return (<div key={i}>
+                  <Link to={e.link} className="text-theme-purple text-lg">{e.label}</Link>
                 </div>)
               })
             }

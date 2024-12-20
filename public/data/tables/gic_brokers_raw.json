@@ -1,0 +1,41 @@
+{
+  "last_updated": "2024-12-20T14:58:02.978465",
+  "headers": [
+    "Broker name",
+    "Updated",
+    "1-year",
+    "2-year",
+    "3-year",
+    "4-year",
+    "5-year"
+  ],
+  "rows": [
+    [
+      "Monarch Wealth Corporation",
+      "Dec 19",
+      "4.05",
+      "4.06",
+      "4.00",
+      "3.83",
+      "4.15"
+    ],
+    [
+      "GIC Wealth Management",
+      "Dec 19",
+      "4.06",
+      "4.01",
+      "3.96",
+      "3.81",
+      "3.88"
+    ],
+    [
+      "GIC Direct",
+      "Dec 19",
+      "4.00",
+      "4.00",
+      "3.95",
+      "3.80",
+      "3.76"
+    ]
+  ]
+}
