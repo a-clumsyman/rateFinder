@@ -15,7 +15,7 @@ import {
 } from "../assets/images";
 export const navLinks = [
   { href: "/", label: "Get an Appraisal", coming_soon: true },
-  { href: "/", label: "Get Rates", coming_soon: false },
+  { href: "/gic-rates", label: "Get Rates", coming_soon: false },
   { href: "/", img: navLogo },
   { href: "/", label: "Manage Your Credit", coming_soon: true },
   { href: "/", label: "Get Insured", coming_soon: true },

@@ -11,11 +11,11 @@ import {
   Services,
   Highlights,
 } from "./sections";
-import { Navbar, Footer } from "./sections";
+import Layout from "../../components/Layout";
+
 export default function Home() {
   return (
-    <main className="relative bg-primary">
-      <Navbar />
+    <Layout>
       <section className="">
         <Hero />
       </section>
@@ -34,9 +34,6 @@ export default function Home() {
       <section>
         <Highlights />
       </section>
-      {/* <section className="padding">
-        <Clients />
-      </section> */}
       <section className="padding">
         <EducationCenter />
       </section>
@@ -49,9 +46,6 @@ export default function Home() {
       <section className="padding">
         <RatesList />
       </section>
-      <section>
-        <Footer />
-      </section>
-    </main>
+    </Layout>
   );
 }
